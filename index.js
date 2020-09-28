@@ -57,7 +57,8 @@ app.put('/user/:id',async function(req, res){
         await db.collection('user').findOneAndUpdate({_id:mongodb.ObjectID(req.params.id)},{$set:{name:req.body.name,email:req.body.email,city:req.body.city}});
                  
         client.close();
-        res.json();
+        res.json({
+        message:'Updated'});
     } catch (error) {
         res.json({
             message:"Something went wrong"
@@ -73,7 +74,8 @@ app.delete('/:id',async function(req,res){
         await db.collection('user').findOneAndDelete({_id:mongodb.ObjectID(req.params.id)});
                  
         client.close();
-        res.json();
+        res.json({
+        message:'Deleted'});
     } catch (error) {
         res.json({
             message:"Something went wrong"
