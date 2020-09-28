@@ -10,9 +10,7 @@ const cors=require('cors')
 
 app.use(bodyParser.json())
 
-app.use(cors({
-    origin:"*"
-}))
+app.use(cors());
 
 app.get("/", async function (req, res) {
     res.json("Hello World");
